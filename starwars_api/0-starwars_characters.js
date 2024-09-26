@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
-const url = `https://swapi-api.hbtn.io/api/films/${process.argv[2]}/`;
+const url = `https://swapi-api.hbtn.io/api/planets/3/${process.argv[2]}/`;
 request(url, async function (error, response, body) {
   if (error) {
     return console.log(error);
@@ -12,6 +12,7 @@ request(url, async function (error, response, body) {
         request(characters[character], (err, res, html) => {
           if (err) {
             reject(err);
+            
           } else {
             resolve(JSON.parse(html).name);
           }
